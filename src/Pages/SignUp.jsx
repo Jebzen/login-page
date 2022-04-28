@@ -54,7 +54,7 @@ export default function SignUp() {
 			);
 			const user = res.user;
 			await addDoc(collection(db, "users"), {
-				uid: user.uid,
+				id: user.uid,
 				username,
 				authProvider: "local",
 				email,
