@@ -17,21 +17,27 @@ export default function Navbar({ login, setLogin }) {
 			{login && (
 				<li className="nav-item">
 					<span className="nav-link">
-						<Link to="/">Home</Link>
+						<Link to="/">
+							<span className="btn btn-primary">Home</span>
+						</Link>
 					</span>
 				</li>
 			)}
 			{!login && (
 				<li className="nav-item">
 					<span className="nav-link">
-						<Link to="/SignUp">Sign Up</Link>
+						<Link to="/SignUp">
+							<span className="btn btn-primary">Sign up</span>
+						</Link>
 					</span>
 				</li>
 			)}
 			{!login && (
 				<li className="nav-item">
 					<span className="nav-link">
-						<Link to="/SignIn">Sign In</Link>
+						<Link to="/SignIn">
+							<span className="btn btn-primary">Sign in</span>
+						</Link>
 					</span>
 				</li>
 			)}
@@ -39,7 +45,7 @@ export default function Navbar({ login, setLogin }) {
 				<li className="nav-item">
 					<span className="nav-link">
 						<a href="#" onClick={SignOut}>
-							Sign Out
+							<span className="btn btn-danger">Sign out</span>
 						</a>
 					</span>
 				</li>

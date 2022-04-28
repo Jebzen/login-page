@@ -45,7 +45,7 @@ function App() {
 					element={<Home login={login} userData={userData} />}
 				/>
 				<Route
-					path="/Home"
+					path="/login-page"
 					element={<Home login={login} userData={userData} />}
 				/>
 				<Route

@@ -12,6 +12,11 @@ export default function SignUp() {
 	const [password, setPassword] = useState("");
 	const [conPassword, setConPassword] = useState("");
 
+	const [samePassword, setSamePassword] = useState(true);
+	const [goodPassword, setGoodPassword] = useState(true);
+	const [cPHemail, setCPHemail] = useState(true);
+	const [validName, setValidName] = useState(true);
+
 	function handleName(e) {
 		setName(e.target.value);
 	}
@@ -28,19 +33,21 @@ export default function SignUp() {
 	function handleValidation(e) {
 		e.preventDefault();
 
-		const SamePassword = password === conPassword;
-		const GoodPassword = password.length > 7;
-		const CPHemail =
+		setSamePassword(password === conPassword);
+		setGoodPassword(password.length > 7);
+		setCPHemail(
 			email.length > 15 &&
-			email.slice(-15).toLowerCase() == "@cphbusiness.dk";
-		const ValidName = name.length > 0;
+				email.slice(-15).toLowerCase() == "@cphbusiness.dk"
+		);
+		setValidName(name.length > 0);
 
 		//Password == Confirm password
 		//Email is cphBusiness
 		//Passowrd is over 7 characters long
+		//name over 0 characters
 
-		console.log(SamePassword, GoodPassword, CPHemail, ValidName);
-		if (SamePassword && GoodPassword && CPHemail && ValidName) {
+		console.log(samePassword, goodPassword, cPHemail, validName);
+		if (samePassword && goodPassword && cPHemail && validName) {
 			registerWithEmailAndPassword(name, email, password);
 		}
 	}
@@ -81,6 +88,12 @@ export default function SignUp() {
 						value={name}
 						onChange={handleName}
 					/>
+					{!validName && (
+						<small className="text-danger">
+							Username too short... like it need to be over 0
+							characters... like really?
+						</small>
+					)}
 				</div>
 				<div className="mb-3">
 					<label htmlFor="" className="form-label">
@@ -92,6 +105,11 @@ export default function SignUp() {
 						value={email}
 						onChange={handleEmail}
 					/>
+					{!cPHemail && (
+						<small className="text-danger">
+							Wrong domain. Only accepts CPHbusiness.dk emails
+						</small>
+					)}
 				</div>
 				<div className="mb-3">
 					<label htmlFor="" className="form-label">
@@ -103,6 +121,11 @@ export default function SignUp() {
 						value={password}
 						onChange={handlePassword}
 					/>
+					{!goodPassword && (
+						<small className="text-danger">
+							Bad password. It needs to be over 7 characters long
+						</small>
+					)}
 				</div>
 				<div className="mb-3">
 					<label htmlFor="" className="form-label">
@@ -114,6 +137,11 @@ export default function SignUp() {
 						value={conPassword}
 						onChange={handleConPassword}
 					/>
+					{!samePassword && (
+						<small className="text-danger">
+							Passwords are not the same
+						</small>
+					)}
 				</div>
 				<div className="mb-3">
 					<input
