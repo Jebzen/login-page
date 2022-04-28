@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
+import * as fire from "../firebase";
 
-export default function Navbar() {
+export default function Navbar({ Login }) {
 	return (
 		<ul className="nav justify-content-end">
 			<li className="nav-item">
@@ -10,12 +11,12 @@ export default function Navbar() {
 			</li>
 			<li className="nav-item">
 				<span className="nav-link">
-					<Link to="/">Sign Up</Link>
+					<Link to="/SignUp">Sign Up</Link>
 				</span>
 			</li>
 			<li className="nav-item">
 				<span className="nav-link">
-					<Link to="/">Sign In</Link>
+					<Link to="/SignIn">Sign In</Link>
 				</span>
 			</li>
 			<li className="nav-item">
