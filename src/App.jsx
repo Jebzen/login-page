@@ -8,14 +8,18 @@ import Navbar from "./Components/Navbar";
 import { useState } from "react";
 
 function App() {
-	const [Login, SetLogin] = useState({});
+	const [login, setLogin] = useState({});
 
 	return (
 		<div className="app">
-			<Navbar Login={Login} />
+			<Navbar Login={login} />
 			<Routes>
-				<Route exact path="/" element={<Home />} />
-				<Route path="/SignIn" element={<SignIn />} />
+				<Route exact path="/" element={<Home login={login} />} />
+				<Route path="/Home" element={<Home login={login} />} />
+				<Route
+					path="/SignIn"
+					element={<SignIn setLogin={setLogin} />}
+				/>
 				<Route path="/SignUp" element={<SignUp />} />
 			</Routes>
 		</div>

@@ -1,0 +1,7 @@
+    Create a ’Signup page’
+        Only allow ‘cphbusiness.dk’ emails
+    Create a ‘Login page’
+        Use Firebase as your authentication backend
+    Create your own forms and add validation to it
+    Add Sign out functionality
+    Deployed to Github pages, so I can test it
